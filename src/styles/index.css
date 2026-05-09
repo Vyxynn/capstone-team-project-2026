@@ -1,0 +1,41 @@
+/* /src/styles/index.css */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#no-js-page {
+  display: none;
+}
+
+#app {
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "canvas canvas canvas sidebar";
+  grid-template-rows: 1fr 15fr;
+  height: 100vh;
+}
+
+#header {
+  grid-area: header;
+  height: 100%;
+  width: 100%;
+  background-color: red;
+}
+
+#canvas {
+  grid-area: canvas;
+  height: 100%;
+  width: 100%;
+  background-color: green;
+}
+
+#sidebar {
+  grid-area: sidebar;
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+}
