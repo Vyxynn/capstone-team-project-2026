@@ -16,6 +16,7 @@
     "header header header header"
     "canvas canvas canvas sidebar";
   grid-template-rows: 1fr 15fr;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
   height: 100vh;
 }
 
@@ -24,6 +25,37 @@
   height: 100%;
   width: 100%;
   background-color: red;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#header img {
+  height: 50px;
+}
+
+#headInfo, #headTime {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+#headInfo {
+  justify-content: left;
+  display: flex;
+  flex-direction: row;
+}
+
+#headInfoTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#headTime {
+  justify-content: right;
 }
 
 #canvas {

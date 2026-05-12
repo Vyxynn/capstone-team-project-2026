@@ -2,30 +2,51 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gravitational Orbit Simulator</title>
-    <link rel="stylesheet" href="/src/styles/index.css" />
-  </head>
-  <body>
-    <div id="app">
-      <header id="header">Header</header>
-      <canvas id="canvas"></canvas>
-      <section id="sidebar">Sidebar</section>
-    </div>
-    <div id="no-js-page">JavaScript is required to run this simulator</div>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Gravitational Orbit Simulator</title>
+        <link rel="stylesheet" href="/src/styles/index.css" />
+    </head>
+    <body>
+        <div id="app">
+            <header id="header">
+                <div id="headInfo">
+                    <div id="headInfoTitle">
+                        <img src="src/assets/icon.svg" />
+                        <a
+                            href="https://github.com/Vyxynn/capstone-team-project-2026"
+                            target="_blank"
+                            >Gravitational Orbit Simulator</a
+                        >
+                    </div>
+                    <div>Sim Time</div>
+                </div>
+                <div id="headTime">
+                    <div id="simStatus">Status</div>
+                    <button id="simPauseToggle">Pause/Play</button>
+                    <button id="speedSixteenthButton">1/16x</button>
+                    <button id="speedOneButton">1x</button>
+                    <button id="speedTwoButton">2x</button>
+                    <button id="speedFiveButton">5x</button>
+                    <button id="speedTenButton">10x</button>
+                </div>
+            </header>
+            <canvas id="canvas"></canvas>
+            <section id="sidebar">Sidebar</section>
+        </div>
+        <div id="no-js-page">JavaScript is required to run this simulator</div>
 
-    <noscript>
-      <style>
-        #app {
-          display: none;
-        }
-        #no-js-page {
-          display: block;
-        }
-      </style>
-    </noscript>
-  </body>
+        <noscript>
+            <style>
+                #app {
+                    display: none;
+                }
+                #no-js-page {
+                    display: block;
+                }
+            </style>
+        </noscript>
+    </body>
 </html>
