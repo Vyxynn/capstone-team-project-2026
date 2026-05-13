@@ -34,7 +34,59 @@
                 </div>
             </header>
             <canvas id="canvas"></canvas>
-            <section id="sidebar">Sidebar</section>
+            <section id="sidebar">
+                <div id="sidebarNav">
+                    <button class="sidebarNavLink" id="sidebarNavCreate">Create</button>
+                    <button class="sidebarNavLink" id="sidebarNavBodies">Bodies</button>
+                </div>
+                <div id="sidebarContent">
+                    <form class="sidebarContentHolder" id="sidebarContentCreate">
+                        <canvas id="createCanvas"></canvas>
+                        <div class="inputDiv">
+                            <label for="createName">Name: </label>
+                            <input type="text" name="createName" id="createName" />
+                        </div>
+
+                        <div class="inputDiv">
+                            <label for="createColor">Color: </label>
+                            <input type="color" name="createColor" id="createColor" />
+                            <input type="text" name="createColorInput" id="createColorInput" />
+                        </div>
+
+                        <div class="inputDiv">
+                            <label for="createMass">Mass (x10^24 kg): </label>
+                            <p class="rangeLabel">0</p>
+                            <input type="range" name="createMassRange" id="createMassRange" />
+                            <p class="rangeLabel">100</p>
+                            <input type="number" name="createMassInput" id="createMassInput" />
+                        </div>
+
+                        <div class="inputDiv">
+                            <label for="createRadius">Radius (px): </label>
+                            <p class="rangeLabel">0</p>
+                            <input type="range" name="createRadiusRange" id="createRadiusRange" />
+                            <p class="rangeLabel">100</p>
+                            <input type="number" name="createRadiusInput" id="createRadiusInput" />
+                        </div>
+
+                        <div class="initialVelocityDiv">
+                            <label for="createInitialVelocity">Initial Velocity (AU/yr): </label>
+                            <div id="createInitialVelocityInputsDiv">
+                                <div class="createInitialVelocityInput">
+                                    <label for="createInitialVX">VX: </label>
+                                    <input type="number" name="createInitialVX" id="createInitialVX" />
+                                </div>
+                                <div class="createInitialVelocityInput">
+                                    <label for="createInitialVY">VY: </label>
+                                    <input type="number" name="createInitialVY" id="createInitialVY" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit">Place</button>
+                    </form>
+                </div>
+            </section>
         </div>
         <div id="no-js-page">JavaScript is required to run this simulator</div>
 

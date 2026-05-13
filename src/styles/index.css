@@ -1,73 +1,129 @@
 /* /src/styles/index.css */
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 #no-js-page {
-  display: none;
+    display: none;
 }
 
 #app {
-  display: grid;
-  grid-template-areas:
-    "header header header header"
-    "canvas canvas canvas sidebar";
-  grid-template-rows: 1fr 15fr;
-  grid-template-columns: 2fr 2fr 2fr 1fr;
-  height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header header header header"
+        "canvas canvas canvas sidebar";
+    grid-template-rows: 1fr 15fr;
+    height: 100vh;
 }
 
 #header {
-  grid-area: header;
-  height: 100%;
-  width: 100%;
-  background-color: red;
+    grid-area: header;
+    height: 100%;
+    width: 100%;
+    background-color: red;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #header img {
-  height: 50px;
+    height: 50px;
 }
 
-#headInfo, #headTime {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 20px;
+#headInfo,
+#headTime {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
 }
 
 #headInfo {
-  justify-content: left;
-  display: flex;
-  flex-direction: row;
+    justify-content: left;
+    display: flex;
+    flex-direction: row;
 }
 
 #headInfoTitle {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 #headTime {
-  justify-content: right;
+    justify-content: right;
 }
 
 #canvas {
-  grid-area: canvas;
-  height: 100%;
-  width: 100%;
-  background-color: green;
+    grid-area: canvas;
+    height: 100%;
+    width: 100%;
+    min-width: 70vw;
+    background-color: green;
 }
 
 #sidebar {
-  grid-area: sidebar;
-  height: 100%;
-  width: 100%;
-  background-color: blue;
+    grid-area: sidebar;
+    height: 100%;
+    width: 100%;
+    max-width: 30vw;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#sidebarNav {
+    height: 5%;
+    width: 100%;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#sidebarContent {
+    height: 95%;
+    width: 100%;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebarContentHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+#createCanvas {
+    background-color: purple;
+    width: 100%;
+}
+
+.inputDiv,
+.initialVelocityDiv,
+#createInitialVelocityInputsDiv {
+    background-color: lime;
+    display: flex;
+    align-items: center;
+    justify-content: space-eve;
+    gap: 5px;
+    width: 100%;
+}
+
+.initialVelocityDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+#createInitialVelocityInputsDiv {
+  justify-content: center;
 }
