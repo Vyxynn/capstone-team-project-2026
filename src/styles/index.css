@@ -11,15 +11,15 @@
 }
 
 body {
-  width: 100%;
-  height: 100%;
-  display: flex;
+  width: 100vw;
+  height: 100vh;
 }
 
 #app {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 7fr;
   /* display: grid;
   grid-template-areas:
     "header header header header"
@@ -29,23 +29,24 @@ body {
 }
 
 .section-top {
-  flex: 1;
   background-color: red;
 }
 
-.section-bottom{
-  flex: 5;
-  display: flex;
-  flex-direction: row;
+/* #header {
+  width: 100%;
+  height: 100%;
+} */
+
+.section-bottom {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
 }
 
 .inner-left {
-  flex: 3;
   background-color: green;
 }
 
-.inner-right{
-  flex:1;
+.inner-right {
   background-color: blue;
 }
 /* 
@@ -55,13 +56,12 @@ body {
   width: 100%;
   background-color: red;
 } */
-/* 
-#canvas {
-  grid-area: canvas;
-  height: 100%;
+
+/* #canvas {
   width: 100%;
-  background-color: green;
-} */
+  height: 100%;
+  background-color: white;
+}  */
 
 /* #sidebar {
   grid-area: sidebar;
