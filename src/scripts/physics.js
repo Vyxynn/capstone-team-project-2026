@@ -38,18 +38,18 @@ export function applyGravity(bodies) {
 }
 
 // update velocity and positions
-export function updateBodies(bodies, dt = DT) {
+export function updateBodies(bodies, day = DAY) {
     for (const body of bodies) {
-        body.vx += body.ax * dt;
-        body.vy += body.ay * dt;
+        body.vx += body.ax * day;
+        body.vy += body.ay * day;
 
-        body.x += body.vx * dt;
-        body.y += body.vy * dt;
+        body.x += body.vx * day;
+        body.y += body.vy * day;
     }
 }
 
 // step simulation
-export function stepSimulation(bodies, dt = DT) {
+export function stepSimulation(bodies, day = DAY) {
     applyGravity(bodies);
-    updateBodies(bodies, dt);
+    updateBodies(bodies, day);
 }
