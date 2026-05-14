@@ -1,0 +1,46 @@
+{
+    "bodies": [
+        {
+            "name": "Earth",
+            "color": "#3b82f6",
+            "mass": 5.972e24,
+            "radius": 6371,
+            "x": 0,
+            "y": 0,
+            "vx": 0,
+            "vy": 0,
+            "ax": 0,
+            "ay": 0,
+            "createdAt": 1715700000000,
+            "updatedAt": null
+        },
+        {
+            "name": "Moon",
+            "color": "#cbd5e1",
+            "mass": 7.34767309e22,
+            "radius": 1737,
+            "x": 384400,
+            "y": 0,
+            "vx": 0,
+            "vy": 1.022,
+            "ax": 0,
+            "ay": 0,
+            "createdAt": 1715700000000,
+            "updatedAt": null
+        },
+        {
+            "name": "Mars",
+            "color": "#ef4444",
+            "mass": 6.39e23,
+            "radius": 3389,
+            "x": 225000000,
+            "y": 0,
+            "vx": 0,
+            "vy": 24.07,
+            "ax": 0,
+            "ay": 0,
+            "createdAt": 1715700000000,
+            "updatedAt": null
+        }
+    ]
+}
