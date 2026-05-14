@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="/src/styles/header.css" />
         <link rel="stylesheet" href="/src/styles/sidebar.css" />
         <link rel="stylesheet" href="/src/styles/canvas.css" />
+
+        <script src="src/scripts/index.js" defer></script>
     </head>
     <body>
         <div id="app">
@@ -42,7 +44,7 @@
             <canvas id="canvas"></canvas>
             <section id="sidebar">
                 <div id="sidebarNav">
-                    <button class="sidebarNavLink" id="sidebarNavCreate">
+                    <button class="sidebarNavLink" id="sidebarNavCreate" disabled>
                         Create
                     </button>
                     <button class="sidebarNavLink" id="sidebarNavBodies">
@@ -53,7 +55,6 @@
                     <form
                         class="sidebarContentHolder"
                         id="sidebarContentCreate"
-                        style="display: none"
                     >
                         <canvas id="createCanvas"></canvas>
                         <div class="inputDiv">
@@ -138,7 +139,7 @@
                         <button type="submit">Place</button>
                     </form>
 
-                    <div class="sidebarContentHolder" id="sidebarContentBodies">
+                    <div class="sidebarContentHolder hide" id="sidebarContentBodies">
                         <div id="bodiesCountContainer">
                             <span id="bodiesCount">i</span> bodies
                         </div>

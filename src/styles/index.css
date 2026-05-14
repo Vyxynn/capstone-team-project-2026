@@ -40,6 +40,10 @@ canvas {
     min-width: 0;
 }
 
+.hide {
+    display: none !important;
+}
+
 noscript style {
     display: none;
 }

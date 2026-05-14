@@ -41,6 +41,4 @@ export class Body {
     this.ax = 0;
     this.ay = 0;
   }
-
-  
 }
