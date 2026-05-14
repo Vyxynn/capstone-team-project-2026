@@ -8,6 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Gravitational Orbit Simulator</title>
         <link rel="stylesheet" href="/src/styles/index.css" />
+        <link rel="stylesheet" href="/src/styles/header.css" />
+        <link rel="stylesheet" href="/src/styles/sidebar.css" />
+        <link rel="stylesheet" href="/src/styles/canvas.css" />
     </head>
     <body>
         <div id="app">
@@ -21,7 +24,10 @@
                             >Gravitational Orbit Simulator</a
                         >
                     </div>
-                    <div>Sim Time</div>
+                    <div>
+                        Sim Time: <span id="simDate">0Y0M0D</span> |
+                        <span id="simTime">0H:0M:0S</span>
+                    </div>
                 </div>
                 <div id="headTime">
                     <div id="simStatus">Status</div>
@@ -36,55 +42,112 @@
             <canvas id="canvas"></canvas>
             <section id="sidebar">
                 <div id="sidebarNav">
-                    <button class="sidebarNavLink" id="sidebarNavCreate">Create</button>
-                    <button class="sidebarNavLink" id="sidebarNavBodies">Bodies</button>
+                    <button class="sidebarNavLink" id="sidebarNavCreate">
+                        Create
+                    </button>
+                    <button class="sidebarNavLink" id="sidebarNavBodies">
+                        Bodies
+                    </button>
                 </div>
                 <div id="sidebarContent">
-                    <form class="sidebarContentHolder" id="sidebarContentCreate">
+                    <form
+                        class="sidebarContentHolder"
+                        id="sidebarContentCreate"
+                        style="display: none"
+                    >
                         <canvas id="createCanvas"></canvas>
                         <div class="inputDiv">
                             <label for="createName">Name: </label>
-                            <input type="text" name="createName" id="createName" />
+                            <input
+                                type="text"
+                                name="createName"
+                                id="createName"
+                            />
                         </div>
 
                         <div class="inputDiv">
                             <label for="createColor">Color: </label>
-                            <input type="color" name="createColor" id="createColor" />
-                            <input type="text" name="createColorInput" id="createColorInput" />
+                            <input
+                                type="color"
+                                name="createColor"
+                                id="createColor"
+                            />
+                            <input
+                                type="text"
+                                name="createColorInput"
+                                id="createColorInput"
+                            />
                         </div>
 
                         <div class="inputDiv">
                             <label for="createMass">Mass (x10^24 kg): </label>
                             <p class="rangeLabel">0</p>
-                            <input type="range" name="createMassRange" id="createMassRange" />
+                            <input
+                                type="range"
+                                name="createMassRange"
+                                id="createMassRange"
+                            />
                             <p class="rangeLabel">100</p>
-                            <input type="number" name="createMassInput" id="createMassInput" />
+                            <input
+                                type="number"
+                                name="createMassInput"
+                                id="createMassInput"
+                            />
                         </div>
 
                         <div class="inputDiv">
                             <label for="createRadius">Radius (px): </label>
                             <p class="rangeLabel">0</p>
-                            <input type="range" name="createRadiusRange" id="createRadiusRange" />
+                            <input
+                                type="range"
+                                name="createRadiusRange"
+                                id="createRadiusRange"
+                            />
                             <p class="rangeLabel">100</p>
-                            <input type="number" name="createRadiusInput" id="createRadiusInput" />
+                            <input
+                                type="number"
+                                name="createRadiusInput"
+                                id="createRadiusInput"
+                            />
                         </div>
 
                         <div class="initialVelocityDiv">
-                            <label for="createInitialVelocity">Initial Velocity (AU/yr): </label>
+                            <label for="createInitialVelocity"
+                                >Initial Velocity (AU/yr):
+                            </label>
                             <div id="createInitialVelocityInputsDiv">
                                 <div class="createInitialVelocityInput">
                                     <label for="createInitialVX">VX: </label>
-                                    <input type="number" name="createInitialVX" id="createInitialVX" />
+                                    <input
+                                        type="number"
+                                        name="createInitialVX"
+                                        id="createInitialVX"
+                                    />
                                 </div>
                                 <div class="createInitialVelocityInput">
                                     <label for="createInitialVY">VY: </label>
-                                    <input type="number" name="createInitialVY" id="createInitialVY" />
+                                    <input
+                                        type="number"
+                                        name="createInitialVY"
+                                        id="createInitialVY"
+                                    />
                                 </div>
                             </div>
                         </div>
 
                         <button type="submit">Place</button>
                     </form>
+
+                    <div class="sidebarContentHolder" id="sidebarContentBodies">
+                        <div id="bodiesCountContainer">
+                            <span id="bodiesCount">i</span> bodies
+                        </div>
+
+                        <button class="bodiesContainer">
+                            <div class="bodyNumber">i</div>
+                            <span class="bodyName">name</span>
+                        </button>
+                    </div>
                 </div>
             </section>
         </div>

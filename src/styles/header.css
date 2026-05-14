@@ -1,0 +1,45 @@
+/* /src/styles/header.css */
+
+#header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    gap: 20px;
+    background-color: red;
+    min-width: 0;
+    overflow: hidden;
+}
+
+#header img {
+    height: 50px;
+}
+
+#headInfo,
+#headTime {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 0;
+}
+
+#headInfo {
+    flex: 1;
+}
+
+#headInfoTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#headInfoTitle a {
+    text-decoration: none;
+    color: black;
+}
+
+#headTime {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}

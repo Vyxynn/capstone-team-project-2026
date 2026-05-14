@@ -1,0 +1,92 @@
+/* /src/styles/sidebar.css */
+
+#sidebar {
+    grid-area: sidebar;
+    width: 320px;
+    height: 100%;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+}
+
+#sidebarNav {
+    flex: 0 0 50px;
+    width: 100%;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#sidebarContent {
+    flex: 1;
+    background-color: orange;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    min-height: 0;
+}
+
+.sidebarContentHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    justify-content: flex-start;
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+#createCanvas {
+    background-color: purple;
+    width: 100%;
+    display: block;
+}
+
+.inputDiv,
+.initialVelocityDiv,
+#createInitialVelocityInputsDiv,
+#bodiesCountContainer,
+.bodiesContainer {
+    background-color: lime;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.inputDiv input[type="text"],
+.inputDiv input[type="number"],
+.inputDiv input[type="range"] {
+    flex: 1;
+    min-width: 0;
+}
+
+.initialVelocityDiv {
+    flex-direction: column;
+}
+
+#createInitialVelocityInputsDiv {
+    justify-content: center;
+}
+
+#bodiesCountContainer {
+    justify-content: center;
+}
+
+.bodiesContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.bodyNumber {
+    border: solid 1px black;
+    padding: 10px 15px;
+    border-radius: 5px;
+}

@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+input,
+canvas {
+    max-width: 100%;
+}
+
 #no-js-page {
     display: none;
 }
@@ -13,117 +18,28 @@
 #app {
     display: grid;
     grid-template-areas:
-        "header header header header"
-        "canvas canvas canvas sidebar";
-    grid-template-rows: 1fr 15fr;
+        "header header"
+        "canvas sidebar";
+    grid-template-columns: 1fr 320px;
+    grid-template-rows: 70px 1fr;
     height: 100vh;
 }
 
-#header {
-    grid-area: header;
-    height: 100%;
-    width: 100%;
-    background-color: red;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#header img {
-    height: 50px;
+#canvas,
+#sidebar {
+    min-height: 0;
 }
 
 #headInfo,
-#headTime {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    gap: 20px;
-}
-
-#headInfo {
-    justify-content: left;
-    display: flex;
-    flex-direction: row;
-}
-
-#headInfoTitle {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#headTime {
-    justify-content: right;
-}
-
-#canvas {
-    grid-area: canvas;
-    height: 100%;
-    width: 100%;
-    min-width: 70vw;
-    background-color: green;
-}
-
-#sidebar {
-    grid-area: sidebar;
-    height: 100%;
-    width: 100%;
-    max-width: 30vw;
-    background-color: blue;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#sidebarNav {
-    height: 5%;
-    width: 100%;
-    background-color: yellow;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-#sidebarContent {
-    height: 95%;
-    width: 100%;
-    background-color: orange;
-    display: flex;
-    justify-content: center;
-}
-
-.sidebarContentHolder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px;
-}
-
-#createCanvas {
-    background-color: purple;
-    width: 100%;
-}
-
+#headTime,
+.sidebarContentHolder,
 .inputDiv,
 .initialVelocityDiv,
-#createInitialVelocityInputsDiv {
-    background-color: lime;
-    display: flex;
-    align-items: center;
-    justify-content: space-eve;
-    gap: 5px;
-    width: 100%;
+#createInitialVelocityInputsDiv,
+.createInitialVelocityInput {
+    min-width: 0;
 }
 
-.initialVelocityDiv {
-    display: flex;
-    flex-direction: column;
-}
-
-#createInitialVelocityInputsDiv {
-  justify-content: center;
+noscript style {
+    display: none;
 }
