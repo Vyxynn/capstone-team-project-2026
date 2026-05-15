@@ -7,3 +7,7 @@
     display: block;
     background-color: green;
 }
+
+#canvas.picking {
+  cursor: crosshair;
+}

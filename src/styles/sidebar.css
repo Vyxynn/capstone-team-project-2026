@@ -1,50 +1,51 @@
 /* /src/styles/sidebar.css */
 
 #sidebar {
-    grid-area: sidebar;
-    width: 320px;
-    height: 100%;
-    background-color: blue;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    overflow: hidden;
+  grid-area: sidebar;
+  width: 320px;
+  height: 100%;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
 }
 
 #sidebarNav {
-    flex: 0 0 50px;
-    width: 100%;
-    background-color: yellow;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  flex: 0 0 50px;
+  width: 100%;
+  background-color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 #sidebarContent {
-    flex: 1;
-    background-color: orange;
-    overflow-y: auto;
-    display: flex;
-    justify-content: center;
-    min-height: 0;
+  flex: 1;
+  background-color: orange;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  min-height: 0;
 }
 
 .sidebarContentHolder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    justify-content: flex-start;
-    margin: 10px;
-    padding: 10px;
-    width: 100%;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  justify-content: flex-start;
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+  overflow-y: auto;
 }
 
-#createCanvas, #editCanvas {
-    background-color: purple;
-    width: 100%;
-    display: block;
+#createCanvas,
+#editCanvas {
+  background-color: purple;
+  width: 100%;
+  display: block;
 }
 
 .inputDiv,
@@ -54,41 +55,57 @@
 #editVelocityInputsDiv,
 #bodiesCountContainer,
 .bodiesContainer {
-    background-color: lime;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    width: 100%;
+  background-color: lime;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
 }
 
 .inputDiv input[type="text"],
 .inputDiv input[type="number"],
 .inputDiv input[type="range"] {
-    flex: 1;
-    min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
-.initialVelocityDiv, .velocityDiv {
-    flex-direction: column;
+.initialVelocityDiv,
+.velocityDiv {
+  flex-direction: column;
 }
 
-#createInitialVelocityInputsDiv, #editVelocityInputsDiv {
-    justify-content: center;
+#createInitialVelocityInputsDiv,
+#editVelocityInputsDiv {
+  justify-content: center;
 }
 
 #bodiesCountContainer {
-    justify-content: center;
+  justify-content: center;
 }
 
 .bodiesContainer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .bodyNumber {
-    border: solid 1px black;
-    padding: 10px 15px;
-    border-radius: 5px;
+  border: solid 1px black;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+#pickPositionButton.picking {
+  background-color: #e05c00;
+  animation: pulse 0.8s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
 }

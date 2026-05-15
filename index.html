@@ -2,292 +2,303 @@
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Gravitational Orbit Simulator</title>
-        <link rel="stylesheet" href="/src/styles/index.css" />
-        <link rel="stylesheet" href="/src/styles/header.css" />
-        <link rel="stylesheet" href="/src/styles/sidebar.css" />
-        <link rel="stylesheet" href="/src/styles/canvas.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gravitational Orbit Simulator</title>
+    <link rel="stylesheet" href="/src/styles/index.css" />
+    <link rel="stylesheet" href="/src/styles/header.css" />
+    <link rel="stylesheet" href="/src/styles/sidebar.css" />
+    <link rel="stylesheet" href="/src/styles/canvas.css" />
 
-        <script src="src/scripts/index.js" defer></script>
-    </head>
-    <body>
-        <div id="app">
-            <header id="header">
-                <div id="headInfo">
-                    <div id="headInfoTitle">
-                        <img src="src/assets/icon.svg" />
-                        <a
-                            href="https://github.com/Vyxynn/capstone-team-project-2026"
-                            target="_blank"
-                            >Gravitational Orbit Simulator</a
-                        >
-                    </div>
-                    <div>
-                        Sim Time: <span id="simDate">0Y0M0D</span> |
-                        <span id="simTime">0H:0M:0S</span>
-                    </div>
-                </div>
-                <div id="headTime">
-                    <div id="simStatus">Status</div>
-                    <button id="simPauseToggle">Pause/Play</button>
-                    <button id="speedSixteenthButton">1/16x</button>
-                    <button id="speedOneButton">1x</button>
-                    <button id="speedTwoButton">2x</button>
-                    <button id="speedFiveButton">5x</button>
-                    <button id="speedTenButton">10x</button>
-                </div>
-            </header>
-            <canvas id="canvas"></canvas>
-            <section id="sidebar">
-                <div id="sidebarNav">
-                    <button
-                        class="sidebarNavLink"
-                        id="sidebarNavCreate"
-                        disabled
-                    >
-                        Create
-                    </button>
-                    <button class="sidebarNavLink" id="sidebarNavBodies">
-                        Bodies
-                    </button>
-                </div>
-                <div id="sidebarContent">
-                    <form
-                        class="sidebarContentHolder hide"
-                        id="sidebarContentCreate"
-                    >
-                        <canvas id="createCanvas"></canvas>
-                        <div class="inputDiv">
-                            <label for="createName">Name: </label>
-                            <input
-                                type="text"
-                                name="createName"
-                                id="createName"
-                                required
-                            />
-                        </div>
-
-                        <div class="inputDiv">
-                            <label for="createColor">Color: </label>
-                            <input
-                                type="color"
-                                name="createColor"
-                                id="createColor"
-                                required
-                            />
-                            <input
-                                type="text"
-                                name="createColorInput"
-                                id="createColorInput"
-                                required
-                            />
-                        </div>
-
-                        <div class="inputDiv">
-                            <label for="createMass">Mass (x10^24 kg): </label>
-                            <p class="rangeLabel">1</p>
-                            <input
-                                type="range"
-                                name="createMassRange"
-                                id="createMassRange"
-                                min="1"
-                                max="100"
-                                required
-                            />
-                            <p class="rangeLabel">100</p>
-                            <input
-                                type="number"
-                                name="createMassInput"
-                                id="createMassInput"
-                                required
-                            />
-                        </div>
-
-                        <div class="inputDiv">
-                            <label for="createRadius">Radius (px): </label>
-                            <p class="rangeLabel">1</p>
-                            <input
-                                type="range"
-                                name="createRadiusRange"
-                                id="createRadiusRange"
-                                min="1"
-                                max="100"
-                                required
-                            />
-                            <p class="rangeLabel">100</p>
-                            <input
-                                type="number"
-                                name="createRadiusInput"
-                                id="createRadiusInput"
-                                required
-                            />
-                        </div>
-
-                        <div class="initialVelocityDiv">
-                            <label for="createInitialVelocity"
-                                >Initial Velocity (AU/yr):
-                            </label>
-                            <div id="createInitialVelocityInputsDiv">
-                                <div class="createInitialVelocityInput">
-                                    <label for="createInitialVX">VX: </label>
-                                    <input
-                                        type="number"
-                                        name="createInitialVX"
-                                        id="createInitialVX"
-                                        required
-                                    />
-                                </div>
-                                <div class="createInitialVelocityInput">
-                                    <label for="createInitialVY">VY: </label>
-                                    <input
-                                        type="number"
-                                        name="createInitialVY"
-                                        id="createInitialVY"
-                                        required
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="submit" id="sidebarCreateSubmitButton">
-                            Place
-                        </button>
-                    </form>
-
-                    <div
-                        class="sidebarContentHolder hide"
-                        id="sidebarContentBodies"
-                    >
-                        <div id="bodiesCountContainer">
-                            <span id="bodiesCount">i</span> bodies
-                        </div>
-
-                        <button class="bodiesContainer">
-                            <div class="bodyNumber">i</div>
-                            <span class="bodyName">name</span>
-                        </button>
-                    </div>
-
-                    <form
-                        class="sidebarContentHolder"
-                        id="sidebarContentEdit"
-                    >
-                        <canvas id="editCanvas"></canvas>
-                        <div class="inputDiv">
-                            <label for="editName">Name: </label>
-                            <input
-                                type="text"
-                                name="editName"
-                                id="editName"
-                                required
-                            />
-                        </div>
-
-                        <div class="inputDiv">
-                            <label for="editColor">Color: </label>
-                            <input
-                                type="color"
-                                name="editColor"
-                                id="editColor"
-                                required
-                            />
-                            <input
-                                type="text"
-                                name="editColorInput"
-                                id="editColorInput"
-                                required
-                            />
-                        </div>
-
-                        <div class="inputDiv">
-                            <label for="editMass">Mass (x10^24 kg): </label>
-                            <p class="rangeLabel">1</p>
-                            <input
-                                type="range"
-                                name="editMassRange"
-                                id="editMassRange"
-                                min="1"
-                                max="100"
-                                required
-                            />
-                            <p class="rangeLabel">100</p>
-                            <input
-                                type="number"
-                                name="editMassInput"
-                                id="editMassInput"
-                                required
-                            />
-                        </div>
-
-                        <div class="inputDiv">
-                            <label for="editRadius">Radius (px): </label>
-                            <p class="rangeLabel">1</p>
-                            <input
-                                type="range"
-                                name="editRadiusRange"
-                                id="editRadiusRange"
-                                min="1"
-                                max="100"
-                                required
-                            />
-                            <p class="rangeLabel">100</p>
-                            <input
-                                type="number"
-                                name="editRadiusInput"
-                                id="editRadiusInput"
-                                required
-                            />
-                        </div>
-
-                        <div class="velocityDiv">
-                            <label for="editVelocity"
-                                >Velocity (AU/yr):
-                            </label>
-                            <div id="editVelocityInputsDiv">
-                                <div class="editVelocityInput">
-                                    <label for="editVX">VX: </label>
-                                    <input
-                                        type="number"
-                                        name="editVX"
-                                        id="editVX"
-                                        required
-                                    />
-                                </div>
-                                <div class="editVelocityInput">
-                                    <label for="editVY">VY: </label>
-                                    <input
-                                        type="number"
-                                        name="editInitialVY"
-                                        id="editVY"
-                                        required
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <button>Update</button>
-                            <button>Delete</button>
-                        </div>
-                    </form>
-                </div>
-            </section>
+    <script type="module" src="src/scripts/index.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header id="header">
+        <div id="headInfo">
+          <div id="headInfoTitle">
+            <img src="src/assets/icon.svg" />
+            <a
+              href="https://github.com/Vyxynn/capstone-team-project-2026"
+              target="_blank"
+              >Gravitational Orbit Simulator</a
+            >
+          </div>
+          <div>
+            Sim Time: <span id="simDate">0Y0M0D</span> |
+            <span id="simTime">0H:0M:0S</span>
+          </div>
         </div>
-        <div id="no-js-page">JavaScript is required to run this simulator</div>
+        <div id="headTime">
+          <div id="simStatus">Status</div>
+          <button id="simPauseToggle">Pause/Play</button>
+          <button id="speedSixteenthButton">1/16x</button>
+          <button id="speedOneButton">1x</button>
+          <button id="speedTwoButton">2x</button>
+          <button id="speedFiveButton">5x</button>
+          <button id="speedTenButton">10x</button>
+        </div>
+      </header>
+      <canvas id="canvas"></canvas>
+      <section id="sidebar">
+        <div id="sidebarNav">
+          <button class="sidebarNavLink" id="sidebarNavCreate" disabled>
+            Create
+          </button>
+          <button class="sidebarNavLink" id="sidebarNavBodies">Bodies</button>
+        </div>
+        <div id="sidebarContent">
+          <form class="sidebarContentHolder" id="sidebarContentCreate">
+            <canvas id="createCanvas"></canvas>
+            <div class="inputDiv">
+              <label for="createName">Name: </label>
+              <input type="text" name="createName" id="createName" required />
+            </div>
 
-        <noscript>
-            <style>
-                #app {
-                    display: none;
-                }
-                #no-js-page {
-                    display: block;
-                }
-            </style>
-        </noscript>
-    </body>
+            <div class="inputDiv">
+              <label for="createColor">Color: </label>
+              <input
+                type="color"
+                name="createColor"
+                id="createColor"
+                value="#000000"
+                required
+              />
+              <input
+                type="text"
+                name="createColorInput"
+                id="createColorInput"
+                value="#000000"
+                required
+              />
+            </div>
+
+            <div class="inputDiv">
+              <label for="createMass">Mass (x10^24 kg): </label>
+              <p class="rangeLabel">1</p>
+              <input
+                type="range"
+                name="createMassRange"
+                id="createMassRange"
+                min="1"
+                max="100"
+                value="50"
+                required
+              />
+              <p class="rangeLabel">100</p>
+              <input
+                type="number"
+                name="createMassInput"
+                id="createMassInput"
+                value="50"
+                required
+              />
+            </div>
+
+            <div class="inputDiv">
+              <label for="createRadius">Radius (px): </label>
+              <p class="rangeLabel">1</p>
+              <input
+                type="range"
+                name="createRadiusRange"
+                id="createRadiusRange"
+                min="1"
+                max="100"
+                value="50"
+                required
+              />
+              <p class="rangeLabel">100</p>
+              <input
+                type="number"
+                name="createRadiusInput"
+                id="createRadiusInput"
+                value="50"
+                required
+              />
+            </div>
+
+            <div class="initialVelocityDiv">
+              <label for="createInitialVelocity"
+                >Initial Velocity (AU/yr):
+              </label>
+              <div id="createInitialVelocityInputsDiv">
+                <div class="createInitialVelocityInput">
+                  <label for="createInitialVX">VX: </label>
+                  <input
+                    type="number"
+                    name="createInitialVX"
+                    id="createInitialVX"
+                    value="0"
+                    required
+                  />
+                </div>
+                <div class="createInitialVelocityInput">
+                  <label for="createInitialVY">VY: </label>
+                  <input
+                    type="number"
+                    name="createInitialVY"
+                    id="createInitialVY"
+                    value="0"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="initialVelocityDiv" id="createPositionDiv">
+              <label>Position (px):</label>
+              <div id="createPositionInputsDiv">
+                <div class="createInitialVelocityInput">
+                  <label for="createX">X: </label>
+                  <input
+                    type="number"
+                    name="createX"
+                    id="createX"
+                    value="0"
+                    required
+                  />
+                </div>
+                <div class="createInitialVelocityInput">
+                  <label for="createY">Y: </label>
+                  <input
+                    type="number"
+                    name="createY"
+                    id="createY"
+                    value="0"
+                    required
+                  />
+                </div>
+              </div>
+              <button type="button" id="pickPositionButton">
+                Pick on Canvas
+              </button>
+            </div>
+
+            <button type="submit" id="sidebarCreateSubmitButton">Place</button>
+          </form>
+
+          <div class="sidebarContentHolder hide" id="sidebarContentBodies">
+            <div id="bodiesCountContainer">
+              <span id="bodiesCount">i</span> bodies
+            </div>
+          </div>
+
+          <form class="sidebarContentHolder hide" id="sidebarContentEdit">
+            <button type="button" id="editBackButton">Back</button>
+            <canvas id="editCanvas"></canvas>
+            <div class="inputDiv">
+              <label for="editName">Name: </label>
+              <input type="text" name="editName" id="editName" required />
+            </div>
+
+            <div class="inputDiv">
+              <label for="editColor">Color: </label>
+              <input type="color" name="editColor" id="editColor" required />
+              <input
+                type="text"
+                name="editColorInput"
+                id="editColorInput"
+                required
+              />
+            </div>
+
+            <div class="inputDiv">
+              <label for="editMass">Mass (x10^24 kg): </label>
+              <p class="rangeLabel">1</p>
+              <input
+                type="range"
+                name="editMassRange"
+                id="editMassRange"
+                min="1"
+                max="100"
+                required
+              />
+              <p class="rangeLabel">100</p>
+              <input
+                type="number"
+                name="editMassInput"
+                id="editMassInput"
+                required
+              />
+            </div>
+
+            <div class="inputDiv">
+              <label for="editRadius">Radius (px): </label>
+              <p class="rangeLabel">1</p>
+              <input
+                type="range"
+                name="editRadiusRange"
+                id="editRadiusRange"
+                min="1"
+                max="100"
+                required
+              />
+              <p class="rangeLabel">100</p>
+              <input
+                type="number"
+                name="editRadiusInput"
+                id="editRadiusInput"
+                required
+              />
+            </div>
+
+            <div class="velocityDiv">
+              <label for="editVelocity">Velocity (AU/yr): </label>
+              <div id="editVelocityInputsDiv">
+                <div class="editVelocityInput">
+                  <label for="editVX">VX: </label>
+                  <input type="number" name="editVX" id="editVX" required />
+                </div>
+                <div class="editVelocityInput">
+                  <label for="editVY">VY: </label>
+                  <input
+                    type="number"
+                    name="editInitialVY"
+                    id="editVY"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="velocityDiv" id="editPositionDiv">
+              <label>Position (px):</label>
+              <div id="editPositionInputsDiv">
+                <div class="editVelocityInput">
+                  <label for="editX">X: </label>
+                  <input type="number" name="editX" id="editX" required />
+                </div>
+                <div class="editVelocityInput">
+                  <label for="editY">Y: </label>
+                  <input type="number" name="editY" id="editY" required />
+                </div>
+              </div>
+              <button type="button" id="editPickPositionButton">
+                Pick on Canvas
+              </button>
+            </div>
+
+            <div>
+              <button type="submit" id="editUpdateButton">Update</button>
+              <button type="button" id="editDeleteButton">Delete</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+    <div id="no-js-page">JavaScript is required to run this simulator</div>
+
+    <noscript>
+      <style>
+        #app {
+          display: none;
+        }
+        #no-js-page {
+          display: block;
+        }
+      </style>
+    </noscript>
+  </body>
 </html>
