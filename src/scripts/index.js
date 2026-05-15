@@ -1,6 +1,7 @@
 // /src/scripts/index.js
 
 import { readBodies, writeBodies } from "./data";
+import { Body } from "./body";
 
 // time
 const SIM_DATE = document.getElementById("simDate");
@@ -187,20 +188,16 @@ SIDEBAR_CONTENT_CREATE.addEventListener("submit", (e) => {
     return;
   }
 
-  const newBody = {
-    name: newName,
-    color: CREATE_COLOR.value,
-    mass: Number(CREATE_MASS_INPUT.value),
-    radius: Number(CREATE_RADIUS_INPUT.value),
-    x: Number(CREATE_X.value),
-    y: Number(CREATE_Y.value),
-    vx: Number(CREATE_INITIAL_VX.value),
-    vy: Number(CREATE_INITIAL_VY.value),
-    ax: 0,
-    ay: 0,
-    createdAt: Date.now(),
-    updatedAt: null,
-  };
+  const newBody = new Body(
+    newName,
+    CREATE_COLOR.value,
+    Number(CREATE_MASS_INPUT.value),
+    Number(CREATE_RADIUS_INPUT.value),
+    Number(CREATE_X.value),
+    Number(CREATE_Y.value),
+    Number(CREATE_INITIAL_VX.value),
+    Number(CREATE_INITIAL_VY.value),
+  );
 
   existing.push(newBody);
   writeBodies(existing);
@@ -348,18 +345,19 @@ SIDEBAR_CONTENT_EDIT.addEventListener("submit", (e) => {
     return;
   }
 
-  bodies[id] = {
-    ...bodies[id],
-    name: newName,
-    color: EDIT_COLOR.value,
-    mass: Number(EDIT_MASS_INPUT.value),
-    radius: Number(EDIT_RADIUS_INPUT.value),
-    vx: Number(EDIT_VX.value),
-    vy: Number(EDIT_VY.value),
-    x: Number(EDIT_X.value),
-    y: Number(EDIT_Y.value),
-    updatedAt: Date.now(),
-  };
+  const updated = new Body(
+    newName,
+    EDIT_COLOR.value,
+    Number(EDIT_MASS_INPUT.value),
+    Number(EDIT_RADIUS_INPUT.value),
+    Number(EDIT_X.value),
+    Number(EDIT_Y.value),
+    Number(EDIT_VX.value),
+    Number(EDIT_VY.value),
+  );
+  updated.createdAt = bodies[id].createdAt;
+  updated.updatedAt = Date.now();
+  bodies[id] = updated;
 
   writeBodies(bodies);
   editingBodyName = newName;
