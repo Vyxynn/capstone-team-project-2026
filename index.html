@@ -44,7 +44,11 @@
             <canvas id="canvas"></canvas>
             <section id="sidebar">
                 <div id="sidebarNav">
-                    <button class="sidebarNavLink" id="sidebarNavCreate" disabled>
+                    <button
+                        class="sidebarNavLink"
+                        id="sidebarNavCreate"
+                        disabled
+                    >
                         Create
                     </button>
                     <button class="sidebarNavLink" id="sidebarNavBodies">
@@ -53,7 +57,7 @@
                 </div>
                 <div id="sidebarContent">
                     <form
-                        class="sidebarContentHolder"
+                        class="sidebarContentHolder hide"
                         id="sidebarContentCreate"
                     >
                         <canvas id="createCanvas"></canvas>
@@ -63,6 +67,7 @@
                                 type="text"
                                 name="createName"
                                 id="createName"
+                                required
                             />
                         </div>
 
@@ -72,43 +77,53 @@
                                 type="color"
                                 name="createColor"
                                 id="createColor"
+                                required
                             />
                             <input
                                 type="text"
                                 name="createColorInput"
                                 id="createColorInput"
+                                required
                             />
                         </div>
 
                         <div class="inputDiv">
                             <label for="createMass">Mass (x10^24 kg): </label>
-                            <p class="rangeLabel">0</p>
+                            <p class="rangeLabel">1</p>
                             <input
                                 type="range"
                                 name="createMassRange"
                                 id="createMassRange"
+                                min="1"
+                                max="100"
+                                required
                             />
                             <p class="rangeLabel">100</p>
                             <input
                                 type="number"
                                 name="createMassInput"
                                 id="createMassInput"
+                                required
                             />
                         </div>
 
                         <div class="inputDiv">
                             <label for="createRadius">Radius (px): </label>
-                            <p class="rangeLabel">0</p>
+                            <p class="rangeLabel">1</p>
                             <input
                                 type="range"
                                 name="createRadiusRange"
                                 id="createRadiusRange"
+                                min="1"
+                                max="100"
+                                required
                             />
                             <p class="rangeLabel">100</p>
                             <input
                                 type="number"
                                 name="createRadiusInput"
                                 id="createRadiusInput"
+                                required
                             />
                         </div>
 
@@ -123,6 +138,7 @@
                                         type="number"
                                         name="createInitialVX"
                                         id="createInitialVX"
+                                        required
                                     />
                                 </div>
                                 <div class="createInitialVelocityInput">
@@ -131,15 +147,21 @@
                                         type="number"
                                         name="createInitialVY"
                                         id="createInitialVY"
+                                        required
                                     />
                                 </div>
                             </div>
                         </div>
 
-                        <button type="submit">Place</button>
+                        <button type="submit" id="sidebarCreateSubmitButton">
+                            Place
+                        </button>
                     </form>
 
-                    <div class="sidebarContentHolder hide" id="sidebarContentBodies">
+                    <div
+                        class="sidebarContentHolder hide"
+                        id="sidebarContentBodies"
+                    >
                         <div id="bodiesCountContainer">
                             <span id="bodiesCount">i</span> bodies
                         </div>
@@ -149,6 +171,109 @@
                             <span class="bodyName">name</span>
                         </button>
                     </div>
+
+                    <form
+                        class="sidebarContentHolder"
+                        id="sidebarContentEdit"
+                    >
+                        <canvas id="editCanvas"></canvas>
+                        <div class="inputDiv">
+                            <label for="editName">Name: </label>
+                            <input
+                                type="text"
+                                name="editName"
+                                id="editName"
+                                required
+                            />
+                        </div>
+
+                        <div class="inputDiv">
+                            <label for="editColor">Color: </label>
+                            <input
+                                type="color"
+                                name="editColor"
+                                id="editColor"
+                                required
+                            />
+                            <input
+                                type="text"
+                                name="editColorInput"
+                                id="editColorInput"
+                                required
+                            />
+                        </div>
+
+                        <div class="inputDiv">
+                            <label for="editMass">Mass (x10^24 kg): </label>
+                            <p class="rangeLabel">1</p>
+                            <input
+                                type="range"
+                                name="editMassRange"
+                                id="editMassRange"
+                                min="1"
+                                max="100"
+                                required
+                            />
+                            <p class="rangeLabel">100</p>
+                            <input
+                                type="number"
+                                name="editMassInput"
+                                id="editMassInput"
+                                required
+                            />
+                        </div>
+
+                        <div class="inputDiv">
+                            <label for="editRadius">Radius (px): </label>
+                            <p class="rangeLabel">1</p>
+                            <input
+                                type="range"
+                                name="editRadiusRange"
+                                id="editRadiusRange"
+                                min="1"
+                                max="100"
+                                required
+                            />
+                            <p class="rangeLabel">100</p>
+                            <input
+                                type="number"
+                                name="editRadiusInput"
+                                id="editRadiusInput"
+                                required
+                            />
+                        </div>
+
+                        <div class="velocityDiv">
+                            <label for="editVelocity"
+                                >Velocity (AU/yr):
+                            </label>
+                            <div id="editVelocityInputsDiv">
+                                <div class="editVelocityInput">
+                                    <label for="editVX">VX: </label>
+                                    <input
+                                        type="number"
+                                        name="editVX"
+                                        id="editVX"
+                                        required
+                                    />
+                                </div>
+                                <div class="editVelocityInput">
+                                    <label for="editVY">VY: </label>
+                                    <input
+                                        type="number"
+                                        name="editInitialVY"
+                                        id="editVY"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button>Update</button>
+                            <button>Delete</button>
+                        </div>
+                    </form>
                 </div>
             </section>
         </div>

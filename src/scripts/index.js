@@ -18,9 +18,7 @@ const CREATE_BUTTON = document.getElementById("sidebarNavCreate");
 const SIDEBAR_CONTENT_CREATE = document.getElementById("sidebarContentCreate");
 const BODIES_BUTTON = document.getElementById("sidebarNavBodies");
 const SIDEBAR_CONTENT_BODIES = document.getElementById("sidebarContentBodies");
-const SIDEBAR_CREATE_SUBMIT_BUTTON = document.getElementById(
-    "sidebarCreateSubmitButton",
-);
+const SIDEBAR_CONTENT_EDIT = document.getElementById("sidebarContentEdit");
 
 // create area
 const CREATE_NAME = document.getElementById("createName");
@@ -32,6 +30,8 @@ const CREATE_RADIUS_RANGE = document.getElementById("createRadiusRange");
 const CREATE_RADIUS_INPUT = document.getElementById("createRadiusInput");
 const CREATE_INITIAL_VX = document.getElementById("createInitialVX");
 const CREATE_INITIAL_VY = document.getElementById("createInitialVY");
+
+// edit area
 
 // sidebar tab buttons
 CREATE_BUTTON.addEventListener("click", () => {
