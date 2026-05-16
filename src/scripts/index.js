@@ -34,11 +34,14 @@ const CREATE_RADIUS_RANGE = document.getElementById("createRadiusRange");
 const CREATE_RADIUS_INPUT = document.getElementById("createRadiusInput");
 const CREATE_INITIAL_VX = document.getElementById("createInitialVX");
 const CREATE_INITIAL_VY = document.getElementById("createInitialVY");
+const PICK_POSITION_BUTTON = document.getElementById("pickPositionButton");
 const CREATE_FIXED = document.getElementById("createFixed");
+const CREATE_SUBMIT_BUTTON = document.getElementById(
+  "sidebarCreateSubmitButton",
+);
 
 // canvas
 const MAIN_CANVAS = document.getElementById("canvas");
-const PICK_POSITION_BUTTON = document.getElementById("pickPositionButton");
 const CREATE_X = document.getElementById("createX");
 const CREATE_Y = document.getElementById("createY");
 let pickingMode = false;
@@ -60,13 +63,13 @@ const EDIT_BACK_BUTTON = document.getElementById("editBackButton");
 const EDIT_DELETE_BUTTON = document.getElementById("editDeleteButton");
 const EDIT_PICK_BUTTON = document.getElementById("editPickPositionButton");
 const EDIT_FIXED = document.getElementById("editFixed");
+const EDIT_UPDATE_BUTTON = document.getElementById("editUpdateButton");
 let editingBodyName = null;
 
 // bodies area
 const BODIES_COUNT = document.getElementById("bodiesCount");
 
 // sim time tracking
-
 let elapsedSeconds = 0;
 let isPaused = false;
 let currentSpeed = 1;
@@ -259,6 +262,7 @@ PICK_POSITION_BUTTON.addEventListener("click", () => {
   MAIN_CANVAS.classList.add("picking");
   PICK_POSITION_BUTTON.classList.add("picking");
   PICK_POSITION_BUTTON.textContent = "Click the canvas";
+  CREATE_SUBMIT_BUTTON.disabled = true;
 });
 
 EDIT_PICK_BUTTON.addEventListener("click", () => {
@@ -267,6 +271,8 @@ EDIT_PICK_BUTTON.addEventListener("click", () => {
   MAIN_CANVAS.classList.add("picking");
   EDIT_PICK_BUTTON.classList.add("picking");
   EDIT_PICK_BUTTON.textContent = "Click the canvas";
+  EDIT_UPDATE_BUTTON.disabled = true;
+  EDIT_DELETE_BUTTON.disabled = true;
 });
 
 MAIN_CANVAS.addEventListener("click", (e) => {
@@ -281,11 +287,14 @@ MAIN_CANVAS.addEventListener("click", (e) => {
     CREATE_Y.value = y;
     PICK_POSITION_BUTTON.classList.remove("picking");
     PICK_POSITION_BUTTON.textContent = "Pick on Canvas";
+    CREATE_SUBMIT_BUTTON.disabled = false;
   } else {
     EDIT_X.value = x;
     EDIT_Y.value = y;
     EDIT_PICK_BUTTON.classList.remove("picking");
     EDIT_PICK_BUTTON.textContent = "Pick on Canvas";
+    EDIT_UPDATE_BUTTON.disabled = false;
+    EDIT_DELETE_BUTTON.disabled = false;
   }
 
   pickingMode = false;
