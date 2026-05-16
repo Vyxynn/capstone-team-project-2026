@@ -12,6 +12,7 @@ export class Body {
     this.vy = vy; // velocity y
     this.ax = 0; // acceleration x
     this.ay = 0; // acceleration y
+    this.fixed = false;
     this.createdAt = Date.now();
     this.updatedAt = null;
   }

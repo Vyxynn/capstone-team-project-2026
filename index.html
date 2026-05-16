@@ -54,12 +54,12 @@
           <form class="sidebarContentHolder" id="sidebarContentCreate">
             <canvas id="createCanvas"></canvas>
             <div class="inputDiv">
-              <label for="createName">Name: </label>
+              <label for="createName">Name</label>
               <input type="text" name="createName" id="createName" required />
             </div>
 
             <div class="inputDiv">
-              <label for="createColor">Color: </label>
+              <label for="createColor">Color</label>
               <input
                 type="color"
                 name="createColor"
@@ -77,7 +77,7 @@
             </div>
 
             <div class="inputDiv">
-              <label for="createMass">Mass (x10^24 kg): </label>
+              <label for="createMass">Mass (×10²⁴ kg)</label>
               <p class="rangeLabel">1</p>
               <input
                 type="range"
@@ -99,7 +99,7 @@
             </div>
 
             <div class="inputDiv">
-              <label for="createRadius">Radius (px): </label>
+              <label for="createRadius">Radius (px)</label>
               <p class="rangeLabel">1</p>
               <input
                 type="range"
@@ -121,12 +121,10 @@
             </div>
 
             <div class="initialVelocityDiv">
-              <label for="createInitialVelocity"
-                >Initial Velocity (AU/yr):
-              </label>
+              <label>Initial Velocity (AU/yr)</label>
               <div id="createInitialVelocityInputsDiv">
                 <div class="createInitialVelocityInput">
-                  <label for="createInitialVX">VX: </label>
+                  <label for="createInitialVX">VX</label>
                   <input
                     type="number"
                     name="createInitialVX"
@@ -136,7 +134,7 @@
                   />
                 </div>
                 <div class="createInitialVelocityInput">
-                  <label for="createInitialVY">VY: </label>
+                  <label for="createInitialVY">VY</label>
                   <input
                     type="number"
                     name="createInitialVY"
@@ -149,10 +147,10 @@
             </div>
 
             <div class="initialVelocityDiv" id="createPositionDiv">
-              <label>Position (px):</label>
+              <label>Position (px)</label>
               <div id="createPositionInputsDiv">
                 <div class="createInitialVelocityInput">
-                  <label for="createX">X: </label>
+                  <label for="createX">X</label>
                   <input
                     type="number"
                     name="createX"
@@ -162,7 +160,7 @@
                   />
                 </div>
                 <div class="createInitialVelocityInput">
-                  <label for="createY">Y: </label>
+                  <label for="createY">Y</label>
                   <input
                     type="number"
                     name="createY"
@@ -177,25 +175,30 @@
               </button>
             </div>
 
+            <div class="inputDiv">
+              <label for="createFixed">Fixed in place</label>
+              <input type="checkbox" name="createFixed" id="createFixed" />
+            </div>
+
             <button type="submit" id="sidebarCreateSubmitButton">Place</button>
           </form>
 
           <div class="sidebarContentHolder hide" id="sidebarContentBodies">
             <div id="bodiesCountContainer">
-              <span id="bodiesCount">i</span> bodies
+              <span id="bodiesCount">0</span> bodies
             </div>
           </div>
 
           <form class="sidebarContentHolder hide" id="sidebarContentEdit">
-            <button type="button" id="editBackButton">Back</button>
+            <button type="button" id="editBackButton">← Back</button>
             <canvas id="editCanvas"></canvas>
             <div class="inputDiv">
-              <label for="editName">Name: </label>
+              <label for="editName">Name</label>
               <input type="text" name="editName" id="editName" required />
             </div>
 
             <div class="inputDiv">
-              <label for="editColor">Color: </label>
+              <label for="editColor">Color</label>
               <input type="color" name="editColor" id="editColor" required />
               <input
                 type="text"
@@ -206,7 +209,7 @@
             </div>
 
             <div class="inputDiv">
-              <label for="editMass">Mass (x10^24 kg): </label>
+              <label for="editMass">Mass (×10²⁴ kg)</label>
               <p class="rangeLabel">1</p>
               <input
                 type="range"
@@ -226,7 +229,7 @@
             </div>
 
             <div class="inputDiv">
-              <label for="editRadius">Radius (px): </label>
+              <label for="editRadius">Radius (px)</label>
               <p class="rangeLabel">1</p>
               <input
                 type="range"
@@ -246,14 +249,14 @@
             </div>
 
             <div class="velocityDiv">
-              <label for="editVelocity">Velocity (AU/yr): </label>
+              <label>Velocity (AU/yr)</label>
               <div id="editVelocityInputsDiv">
                 <div class="editVelocityInput">
-                  <label for="editVX">VX: </label>
+                  <label for="editVX">VX</label>
                   <input type="number" name="editVX" id="editVX" required />
                 </div>
                 <div class="editVelocityInput">
-                  <label for="editVY">VY: </label>
+                  <label for="editVY">VY</label>
                   <input
                     type="number"
                     name="editInitialVY"
@@ -265,20 +268,25 @@
             </div>
 
             <div class="velocityDiv" id="editPositionDiv">
-              <label>Position (px):</label>
+              <label>Position (px)</label>
               <div id="editPositionInputsDiv">
                 <div class="editVelocityInput">
-                  <label for="editX">X: </label>
+                  <label for="editX">X</label>
                   <input type="number" name="editX" id="editX" required />
                 </div>
                 <div class="editVelocityInput">
-                  <label for="editY">Y: </label>
+                  <label for="editY">Y</label>
                   <input type="number" name="editY" id="editY" required />
                 </div>
               </div>
               <button type="button" id="editPickPositionButton">
                 Pick on Canvas
               </button>
+            </div>
+
+            <div class="inputDiv">
+              <label for="editFixed">Fixed in place</label>
+              <input type="checkbox" name="editFixed" id="editFixed" />
             </div>
 
             <div>
@@ -297,7 +305,7 @@
           display: none;
         }
         #no-js-page {
-          display: block;
+          display: grid;
         }
       </style>
     </noscript>

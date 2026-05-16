@@ -69,6 +69,11 @@
   min-width: 0;
 }
 
+.inputDiv input[type="checkbox"] {
+  flex: 0;
+  width: auto;
+}
+
 .initialVelocityDiv,
 .velocityDiv {
   flex-direction: column;
@@ -96,7 +101,8 @@
   border-radius: 5px;
 }
 
-#pickPositionButton.picking, #editPickPositionButton.picking {
+#pickPositionButton.picking,
+#editPickPositionButton.picking {
   background-color: #e05c00;
   animation: pulse 0.8s infinite alternate;
 }

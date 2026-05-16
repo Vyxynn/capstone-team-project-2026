@@ -23,6 +23,7 @@ export function readBodies() {
       );
       body.ax = b.ax ?? 0;
       body.ay = b.ay ?? 0;
+      body.fixed = b.fixed ?? false;
       body.createdAt = b.createdAt;
       body.updatedAt = b.updatedAt;
       return body;
