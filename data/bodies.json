@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Earth",
+    "color": "#3b82f6",
+    "mass": 5.972e+24,
+    "radius": 6371,
+    "x": 0,
+    "y": 0,
+    "vx": 0,
+    "vy": 0,
+    "ax": 0,
+    "ay": 0,
+    "createdAt": 1715700000000,
+    "updatedAt": null
+  }
+]

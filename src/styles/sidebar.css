@@ -96,7 +96,7 @@
   border-radius: 5px;
 }
 
-#pickPositionButton.picking {
+#pickPositionButton.picking, #editPickPositionButton.picking {
   background-color: #e05c00;
   animation: pulse 0.8s infinite alternate;
 }
