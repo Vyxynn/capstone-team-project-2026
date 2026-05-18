@@ -4,7 +4,8 @@
   grid-area: sidebar;
   width: 320px;
   height: 100%;
-  background-color: blue;
+  background-color: #0d1b2a;
+  border-left: 1px solid #1e3a5f;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -14,15 +15,37 @@
 #sidebarNav {
   flex: 0 0 50px;
   width: 100%;
-  background-color: yellow;
+  background-color: #0a1520;
+  border-bottom: 1px solid #1e3a5f;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
+.sidebarNavLink {
+  background: none;
+  border: none;
+  color: #7ab3d4;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 6px 16px;
+  border-radius: 4px;
+}
+
+.sidebarNavLink:hover {
+  background-color: #1e3a5f;
+  color: #c9d8e8;
+}
+
+.sidebarNavLink:disabled {
+  color: #c9d8e8;
+  background-color: #1e3a5f;
+  cursor: default;
+}
+
 #sidebarContent {
   flex: 1;
-  background-color: orange;
+  background-color: #0d1b2a;
   overflow-y: auto;
   display: flex;
   justify-content: center;
@@ -39,13 +62,15 @@
   padding: 10px;
   width: 100%;
   overflow-y: auto;
+  color: #c9d8e8;
 }
 
 #createCanvas,
 #editCanvas {
-  background-color: purple;
+  background-color: #000000;
   width: 100%;
   display: block;
+  border-radius: 4px;
 }
 
 .inputDiv,
@@ -55,11 +80,19 @@
 #editVelocityInputsDiv,
 #bodiesCountContainer,
 .bodiesContainer {
-  background-color: lime;
   display: flex;
   align-items: center;
   gap: 5px;
   width: 100%;
+  color: #c9d8e8;
+}
+
+.inputDiv label,
+.initialVelocityDiv label,
+.velocityDiv label {
+  color: #7ab3d4;
+  font-size: 0.85rem;
+  white-space: nowrap;
 }
 
 .inputDiv input[type="text"],
@@ -67,11 +100,17 @@
 .inputDiv input[type="range"] {
   flex: 1;
   min-width: 0;
+  background-color: #1e3a5f;
+  border: 1px solid #2e5480;
+  color: #c9d8e8;
+  border-radius: 4px;
+  padding: 4px 6px;
 }
 
 .inputDiv input[type="checkbox"] {
   flex: 0;
   width: auto;
+  accent-color: #7ab3d4;
 }
 
 .initialVelocityDiv,
@@ -84,8 +123,27 @@
   justify-content: center;
 }
 
+.createInitialVelocityInput,
+.editVelocityInput {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #c9d8e8;
+}
+
+.createInitialVelocityInput input,
+.editVelocityInput input {
+  background-color: #1e3a5f;
+  border: 1px solid #2e5480;
+  color: #c9d8e8;
+  border-radius: 4px;
+  padding: 4px 6px;
+  width: 80px;
+}
+
 #bodiesCountContainer {
   justify-content: center;
+  color: #7ab3d4;
 }
 
 .bodiesContainer {
@@ -96,14 +154,52 @@
 }
 
 .bodyNumber {
-  border: solid 1px black;
+  border: 1px solid #2e5480;
   padding: 10px 15px;
   border-radius: 5px;
+  color: #c9d8e8;
+}
+
+button[type="submit"],
+button[type="button"],
+#sidebarCreateSubmitButton,
+#editUpdateButton,
+#editDeleteButton,
+#editBackButton,
+#pickPositionButton,
+#editPickPositionButton {
+  background-color: #1e3a5f;
+  color: #c9d8e8;
+  border: 1px solid #2e5480;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #2e5480;
+}
+
+#editDeleteButton {
+  background-color: #3a1a1a;
+  border-color: #6b2e2e;
+  color: #e8a0a0;
+}
+
+#editDeleteButton:hover {
+  background-color: #5a2a2a;
+}
+
+.rangeLabel {
+  font-size: 0.75rem;
+  color: #7ab3d4;
 }
 
 #pickPositionButton.picking,
 #editPickPositionButton.picking {
-  background-color: #e05c00;
+  background-color: #2e5480;
+  border-color: #7ab3d4;
   animation: pulse 0.8s infinite alternate;
 }
 

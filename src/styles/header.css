@@ -1,45 +1,69 @@
 /* /src/styles/header.css */
 
 #header {
-    grid-area: header;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
-    gap: 20px;
-    background-color: red;
-    min-width: 0;
-    overflow: hidden;
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  gap: 20px;
+  background-color: #0d1b2a;
+  border-bottom: 1px solid #1e3a5f;
+  min-width: 0;
+  overflow: hidden;
+  color: #c9d8e8;
 }
 
 #header img {
-    height: 50px;
+  height: 50px;
 }
 
 #headInfo,
 #headTime {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
 }
 
 #headInfo {
-    flex: 1;
+  flex: 1;
 }
 
 #headInfoTitle {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 #headInfoTitle a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: #7ab3d4;
+}
+
+#headInfoTitle a:hover {
+  color: #a8d0ea;
 }
 
 #headTime {
-    justify-content: flex-end;
-    flex-wrap: wrap;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+#headTime button {
+  background-color: #1e3a5f;
+  color: #c9d8e8;
+  border: 1px solid #2e5480;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#headTime button:hover {
+  background-color: #2e5480;
+}
+
+#simStatus {
+  font-size: 0.85rem;
+  color: #7ab3d4;
 }

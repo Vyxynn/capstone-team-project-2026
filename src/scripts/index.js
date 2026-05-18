@@ -3,6 +3,7 @@
 import { readBodies, writeBodies } from "./data";
 import { Body } from "./body";
 import { reloadBodies } from "./canvas";
+import { drawBodyPreview } from "./preview";
 
 // time
 const SIM_DATE = document.getElementById("simDate");
@@ -46,6 +47,32 @@ const CREATE_X = document.getElementById("createX");
 const CREATE_Y = document.getElementById("createY");
 let pickingMode = false;
 let pickingTarget = null;
+
+// preview canvases
+const CREATE_CANVAS = document.getElementById("createCanvas");
+const EDIT_CANVAS = document.getElementById("editCanvas");
+
+function syncCanvasSize(canvasEl) {
+  const w = canvasEl.clientWidth;
+  if (w > 0 && (canvasEl.width !== w || canvasEl.height !== w)) {
+    canvasEl.width = w;
+    canvasEl.height = w;
+  }
+}
+
+function refreshCreatePreview() {
+  syncCanvasSize(CREATE_CANVAS);
+  const color = CREATE_COLOR.value || "#ffffff";
+  const radius = Math.max(1, Number(CREATE_RADIUS_INPUT.value) || 50);
+  drawBodyPreview(CREATE_CANVAS, color, radius);
+}
+
+function refreshEditPreview() {
+  syncCanvasSize(EDIT_CANVAS);
+  const color = EDIT_COLOR.value || "#ffffff";
+  const radius = Math.max(1, Number(EDIT_RADIUS_INPUT.value) || 50);
+  drawBodyPreview(EDIT_CANVAS, color, radius);
+}
 
 // edit area
 const EDIT_NAME = document.getElementById("editName");
@@ -114,6 +141,8 @@ CREATE_BUTTON.addEventListener("click", () => {
   CREATE_BUTTON.disabled = true;
   BODIES_BUTTON.disabled = false;
   editingBodyName = null;
+
+  requestAnimationFrame(refreshCreatePreview);
 });
 
 BODIES_BUTTON.addEventListener("click", () => {
@@ -136,20 +165,22 @@ CREATE_MASS_INPUT.addEventListener("input", () => {
   CREATE_MASS_RANGE.value = CREATE_MASS_INPUT.value;
 });
 
-// radius
 CREATE_RADIUS_RANGE.addEventListener("input", () => {
   CREATE_RADIUS_INPUT.value = CREATE_RADIUS_RANGE.value;
+  refreshCreatePreview();
 });
 CREATE_RADIUS_INPUT.addEventListener("input", () => {
   CREATE_RADIUS_RANGE.value = CREATE_RADIUS_INPUT.value;
+  refreshCreatePreview();
 });
 
-// color
 CREATE_COLOR.addEventListener("input", () => {
   CREATE_COLOR_INPUT.value = CREATE_COLOR.value;
+  refreshCreatePreview();
 });
 CREATE_COLOR_INPUT.addEventListener("input", () => {
   CREATE_COLOR.value = CREATE_COLOR_INPUT.value;
+  refreshCreatePreview();
 });
 
 // form validation
@@ -254,6 +285,7 @@ SIDEBAR_CONTENT_CREATE.addEventListener("submit", (e) => {
 
   console.log("Body added:", newBody);
   SIDEBAR_CONTENT_CREATE.reset();
+  requestAnimationFrame(refreshCreatePreview);
 });
 
 PICK_POSITION_BUTTON.addEventListener("click", () => {
@@ -347,6 +379,8 @@ function openEditPanel(bodyName) {
   SIDEBAR_CONTENT_EDIT.classList.remove("hide");
   CREATE_BUTTON.disabled = false;
   BODIES_BUTTON.disabled = false;
+
+  requestAnimationFrame(refreshEditPreview);
 }
 
 EDIT_BACK_BUTTON.addEventListener("click", () => {
@@ -366,20 +400,23 @@ EDIT_MASS_INPUT.addEventListener("input", () => {
   EDIT_MASS_RANGE.value = EDIT_MASS_INPUT.value;
 });
 
-// radius
+// radius — also triggers preview
 EDIT_RADIUS_RANGE.addEventListener("input", () => {
   EDIT_RADIUS_INPUT.value = EDIT_RADIUS_RANGE.value;
+  refreshEditPreview();
 });
 EDIT_RADIUS_INPUT.addEventListener("input", () => {
   EDIT_RADIUS_RANGE.value = EDIT_RADIUS_INPUT.value;
+  refreshEditPreview();
 });
 
-// color
 EDIT_COLOR.addEventListener("input", () => {
   EDIT_COLOR_INPUT.value = EDIT_COLOR.value;
+  refreshEditPreview();
 });
 EDIT_COLOR_INPUT.addEventListener("input", () => {
   EDIT_COLOR.value = EDIT_COLOR_INPUT.value;
+  refreshEditPreview();
 });
 
 SIDEBAR_CONTENT_EDIT.addEventListener("submit", (e) => {
@@ -525,3 +562,5 @@ speedMap.forEach(([btn, mult]) => {
 
 updateStatus();
 renderBodiesList();
+
+requestAnimationFrame(refreshCreatePreview);

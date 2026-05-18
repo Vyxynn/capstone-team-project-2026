@@ -1,33 +1,39 @@
 /* /src/styles/index.css */
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0d1b2a;
+  color: #c9d8e8;
+  font-family: sans-serif;
 }
 
 input,
 canvas {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 #no-js-page {
-    display: none;
+  display: none;
 }
 
 #app {
-    display: grid;
-    grid-template-areas:
-        "header header"
-        "canvas sidebar";
-    grid-template-columns: 1fr 320px;
-    grid-template-rows: 70px 1fr;
-    height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "canvas sidebar";
+  grid-template-columns: 1fr 320px;
+  grid-template-rows: 70px 1fr;
+  height: 100vh;
 }
 
 #canvas,
 #sidebar {
-    min-height: 0;
+  min-height: 0;
 }
 
 #headInfo,
@@ -37,13 +43,13 @@ canvas {
 .initialVelocityDiv,
 #createInitialVelocityInputsDiv,
 .createInitialVelocityInput {
-    min-width: 0;
+  min-width: 0;
 }
 
 .hide {
-    display: none !important;
+  display: none !important;
 }
 
 noscript style {
-    display: none;
+  display: none;
 }
